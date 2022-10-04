@@ -1,0 +1,62 @@
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y gcc python2-dev libkrb5-dev && \
+    apt-get install python3-pip -y && \
+    pip3 install --upgrade pip && \
+    pip3 install --upgrade virtualenv && \
+    pip3 install pywinrm && \
+    pip3 install kerberos && \
+    apt install krb5-user -y && \
+    pip3 install ansible && \
+    apt install openssh-server openssh-client -y && \
+    apt install sshpass -y
+    
+    
+ARG PASSWORD=12345
+RUN mkdir /var/run/sshd
+RUN echo "root:${PASSWORD}" | chpasswd
+RUN sed -ir 's/^#*PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
+
+
+
+
+*************build 2**************
+
+FROM ubuntu:16.04
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'rootpassword' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
+
+
+
+Dockercompse***************
+
+version: '3'
+services:
+      ansible:
+        container_name: ansible
+		ports:
+			- "2222:22"
+        image: ansible:latest
+        tty: true
+        stdin_open: true
+
+
+
+      remote-host-one:
+        container_name: remote-host-one
+        image: ssh-enabled-ubuntu:latest
+
+
