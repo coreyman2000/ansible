@@ -1,6 +1,5 @@
 ---
-- name: Get server uptime
-hosts: all
+- hosts: all
 
 tasks:
 - name: Get uptime first
