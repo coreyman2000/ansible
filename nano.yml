@@ -5,6 +5,6 @@
   become_method: sudo
   tasks:
    - name: nano remove
-     apt: name=nano state=present
+     apt: name=nano state=absent
    - name: vim install
      apt: name=vim state=present
