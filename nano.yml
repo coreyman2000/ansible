@@ -1,5 +1,5 @@
 ---
-- hosts: linux
+- hosts: test
   tasks:
    - name: nano remove
      apt: name=nano state=present
