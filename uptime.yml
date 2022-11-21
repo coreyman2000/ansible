@@ -1,9 +1,7 @@
 ---
 - name: Get server uptime
 hosts: all
-remote_user: ubuntu
-become: yes
-become_method: sudo
+
 tasks:
 - name: Get uptime first
 shell: uptime
