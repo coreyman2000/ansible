@@ -1,5 +1,8 @@
 ---
 - hosts: oracle
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
   tasks:
     - name:
       apt:
