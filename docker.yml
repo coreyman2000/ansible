@@ -1,0 +1,17 @@
+---
+- name: First playbook
+  hosts: all
+  gather_facts: true
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Get container info
+    docker_host_info:
+      containers: yes
+      containers_filters:
+        status: "exited"
+    register: result
+  - debug:
+      msg: "Exited container list : {{ item['Names'] }}"
+    loop: "{{ result.containers }}"
