@@ -1,6 +1,6 @@
 ---
 - hosts: oracle
-  remote_user: root
+  remote_user: ubuntu
   become: yes
   become_method: sudo
   tasks:
