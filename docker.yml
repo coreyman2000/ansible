@@ -13,4 +13,4 @@
         ansible.builtin.debug:
           #var: result.host_info
           msg:
-          - {{result.host_info}}
+          - " {{result.host_info}} "
