@@ -11,8 +11,8 @@
   - name: Clone the template
     vmware_guest:
       hostname: 192.0.2.44
-      username: administrator@vsphere.local
-      password: vmware
+      username: "{{ username }}"
+      password: "{{ password }}"
       validate_certs: False
       name: testvm_2
       template: template_el7
