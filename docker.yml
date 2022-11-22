@@ -1,13 +1,12 @@
 ---
-- name: First playbook
-  hosts: all
-  gather_facts: true
-  remote_user: ubuntu
-  become: yes
-  become_method: sudo
-  tasks:
-  - name: Get info on docker host and list images
-  community.docker.docker_host_info:
-    images: true
-  register: result
+  - hosts: all
+    gather_facts: true
+    remote_user: ubuntu
+    become: yes
+    become_method: sudo
+    tasks:
+      - name: Get info on docker host and list images
+        community.docker.docker_host_info:
+          images: true
+        register: result
   
