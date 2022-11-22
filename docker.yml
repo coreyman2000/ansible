@@ -9,6 +9,6 @@
         community.docker.docker_host_info:
           images: true
         register: result
-      - name: Print information about container
+      #- name: Print information about container
       - ansible.builtin.debug:
         var: result.host_info
