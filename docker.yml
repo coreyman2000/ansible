@@ -10,5 +10,7 @@
           images: true
         register: result
       #- name: Print information about container
-      - ansible.builtin.debug:
-        var: result.host_info
+        ansible.builtin.debug:
+          #var: result.host_info
+          msg:
+          - {{result.host_info}}
