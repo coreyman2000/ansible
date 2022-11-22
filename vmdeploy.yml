@@ -3,13 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  vars_prompt:
-  - name: username
-    prompt: What is your username?
-    private: no
 
-  - name: password
-    prompt: What is your password?
   tasks:
   - name: Print a message
     ansible.builtin.debug:
