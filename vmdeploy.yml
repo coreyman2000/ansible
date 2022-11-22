@@ -8,7 +8,7 @@
   - name: Print a message
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
-     - name: Clone the template
+  - name: Clone the template
     vmware_guest:
       hostname: 192.0.2.44
       username: administrator@vsphere.local
