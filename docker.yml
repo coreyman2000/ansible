@@ -10,6 +10,7 @@
           images: true
         register: result
       #- name: Print information about container
+      - name: Prints two lines of messages, but only if there is an environment value set
         ansible.builtin.debug:
           #var: result.host_info
           msg:
