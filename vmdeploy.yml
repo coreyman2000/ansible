@@ -8,6 +8,7 @@
   - name: Print a message
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }}'
+      msg: 'password is {{ password }}'
   - name: Clone the template
     vmware_guest:
       hostname: 192.0.2.44
