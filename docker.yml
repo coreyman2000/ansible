@@ -10,6 +10,4 @@
   community.docker.docker_host_info:
     images: true
   register: result
-  - debug:
-      msg: "Exited container list : {{ item['Names'] }}"
-    loop: "{{ result.containers }}"
+  
