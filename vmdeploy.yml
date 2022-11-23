@@ -4,7 +4,8 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  include_vars: deplyvar.yaml
+  var_files:
+    - deplyvar.yaml
   tasks:
 
   
