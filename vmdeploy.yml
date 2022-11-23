@@ -1,12 +1,14 @@
 ---
-- name: Bare include (free-form)
-  ansible.builtin.include_vars: deplyvar.yaml
+
 - name: Create a VM from a template
   hosts: localhost
   connection: local
   gather_facts: no
 
   tasks:
+
+  - name: Bare include (free-form)
+    ansible.builtin.include_vars: deplyvar.yaml
   - name: Print a message
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
