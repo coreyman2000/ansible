@@ -1,5 +1,5 @@
 ---
-
+ 
 - name: Create a VM from a template
   hosts: localhost
   connection: local
