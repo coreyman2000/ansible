@@ -7,9 +7,8 @@
 
   tasks:
 
-
+  - include_vars: deplyvar.yaml
   - name: Print a message
-    ansible.builtin.include_vars: deplyvar.yaml
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
   - name: Clone the template
