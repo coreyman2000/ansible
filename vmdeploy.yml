@@ -4,13 +4,13 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  var_files:
-    - deplyvar.yaml
+  
   tasks:
 
   
   - name: Print a message
-    
+    var_files:
+      - deplyvar.yaml
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
   - name: Clone the template
