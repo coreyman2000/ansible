@@ -9,8 +9,7 @@
 
   
   - name: Print a message
-    var_files:
-      - deplyvar.yaml
+    include_vars: deplyvar.yaml
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
   - name: Clone the template
