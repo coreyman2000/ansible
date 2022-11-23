@@ -1,4 +1,6 @@
 ---
+- name: Bare include (free-form)
+  ansible.builtin.include_vars: deplyvar.yaml
 - name: Create a VM from a template
   hosts: localhost
   connection: local
