@@ -1,0 +1,20 @@
+- name: Replace /etc/motd file
+  hosts: all
+  become: true
+  #become_user: root
+  tasks:
+
+     - name: Update /etc/banner on webservers host group
+       copy:
+         content: 'This system is used for authroized employees only, COREYMAN LAB ONLY'
+         dest: /etc/ssh/banner
+
+name: Harden sshd configuration
+  lineinfile:
+          dest: /etc/ssh/sshd_config
+          regexp: ""
+          line: ""
+          state: present
+  with_items:
+    - regexp: "^#?Banner none"
+      line: "Banner /etc/ssh/banner"
