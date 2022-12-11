@@ -11,5 +11,7 @@
      - name: enable ssh banner
        replace: dest=/etc/ssh/sshd_config regexp='^#?Banner none' replace='Banner /etc/ssh/banner' backup=yes
        register: banner_enabled      
-
+     - name: ssh restart
+       service: name=sshd state=restarted
+       when: banner_enabled.changed or root_disabled.changed
 
