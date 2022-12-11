@@ -4,7 +4,7 @@
   vars:
     azure:
       service_principal_id: '44a4ba54-b903-4fb5-a7f2-4945cc656e59'
-      service_principal_secret: 'INSERT-SERVICE-PRINCIPAL-SECRET'
+      service_principal_secret: "{{ sec }}"
       resource_group: 'Arc-enabled-Canada'
       tenant_id: '0f35d426-eec2-4c88-8f44-e0f50498876d'
       subscription_id: '9463a1fe-17bf-434a-bda9-41520fe86e01'
