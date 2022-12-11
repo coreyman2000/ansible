@@ -1,9 +1,9 @@
+---
 - name: Replace /etc/motd file
   hosts: all
   become: true
   #become_user: root
   tasks:
-
      - name: Update /etc/banner on webservers host group
        copy:
          content: 'This system is used for authroized employees only, COREYMAN LAB ONLY'
