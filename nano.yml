@@ -1,8 +1,8 @@
 ---
 - hosts: all
-  remote_user: coreyman
+ # remote_user: coreyman
   become: yes
-  become_method: sudo
+#  become_method: sudo
   tasks:
    - name: nano install
      apt: name=nano state=present
