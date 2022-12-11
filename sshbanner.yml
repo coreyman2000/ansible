@@ -16,4 +16,4 @@
          state: present
        with_items:
          - regexp: "^#?Banner none"
-         line: "Banner /etc/ssh/banner"
+           line: "Banner /etc/ssh/banner"
