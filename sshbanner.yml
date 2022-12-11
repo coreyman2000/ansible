@@ -8,12 +8,8 @@
        copy:
          content: 'This system is used for authroized employees only, COREYMAN LAB ONLY'
          dest: /etc/ssh/banner
-     - name: Harden sshd configuration
-       lineinfile:
-         dest: /etc/ssh/sshd_config
-         regexp: ""
-         line: ""
-         state: present
-       with_items:
-         - regexp: "^#?Banner none"
-           line: "Banner /etc/ssh/banner"
+     - name: enable ssh banner
+       replace: dest=/etc/ssh/sshd_config regexp='^#?Banner none' replace='Banner /etc/ssh/banner' backup=yes
+       register: banner_enabled      
+
+
