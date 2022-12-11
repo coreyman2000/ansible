@@ -1,15 +1,15 @@
 ---
- 
+
 - name: Create a VM from a template
   hosts: localhost
   connection: local
   gather_facts: no
-  
+
   tasks:
 
   
   - name: Print a message
-    include_vars: deplyvar.yaml
+  - include_vars: deplyvar.yaml
     ansible.builtin.debug:
       msg: 'Logging in as {{ username }} {{ password }}'
   - name: Clone the template
