@@ -13,5 +13,5 @@
        register: banner_enabled      
      - name: ssh restart
        service: name=sshd state=restarted
-       when: banner_enabled.changed or root_disabled.changed
+       when: banner_enabled.changed
 
