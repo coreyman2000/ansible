@@ -14,7 +14,7 @@
       msg: 'Logging in as {{ username }} {{ password }}'
   - name: Clone the template
     vmware_guest:
-      hostname: 192.0.2.44
+      hostname: 192.0.2.44s
       username: "{{ username }}"
       password: "{{ password }}"
       validate_certs: False
