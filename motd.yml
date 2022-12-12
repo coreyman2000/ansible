@@ -6,6 +6,6 @@
 
      - name: Update /etc/motd on webservers host group
        copy:
-         content: 'This system is used for authroized employees only'
+         content: 'This system is used for authroized employees only COREYMAN LAB ONLY ! OK NOBODY ELSE GOT IT'
          dest: /etc/motd
 

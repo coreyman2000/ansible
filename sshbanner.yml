@@ -6,7 +6,7 @@
   tasks:
      - name: Update /etc/banner on webservers host group
        copy:
-         content: 'This system is used for authroized employees only, COREYMAN LAB ONLY'
+         content: 'This system is used for authroized employees only COREYMAN LAB ONLY ! OK NOBODY ELSE GOT IT'
          dest: /etc/ssh/banner
      - name: enable ssh banner
        replace: dest=/etc/ssh/sshd_config regexp='^#?Banner none' replace='Banner /etc/ssh/banner' backup=yes
