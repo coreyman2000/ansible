@@ -1,0 +1,11 @@
+- name: Replace /etc/motd file
+  hosts: all
+  become: true
+  #become_user: root
+  tasks:
+
+     - name: Update /etc/motd on webservers host group
+       copy:
+         content: {{ custom_message }}
+         dest: /etc/motd
+
