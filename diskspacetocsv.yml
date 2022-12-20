@@ -2,10 +2,11 @@
 - hosts: all
   gather_facts: yes
   tasks:
-    - name: Get disk space information
+    - name: "Get disk space information"
       command: "df -h"
       register: df_output
-    - name: Export disk space information to CSV
+
+    - name: "Export disk space information to CSV"
       csv:
         columns:
           - Filesystem
