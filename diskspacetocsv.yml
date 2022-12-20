@@ -5,7 +5,7 @@
     - name: "Get disk space information"
       command: "df -h"
       register: df_output
-    - name: Parse disk space information
+    - name: "Parse disk space information"
       set_fact:
         disk_space: "{{ item.split() }}"
       with_items: "{{ df_output.stdout_lines }}"
